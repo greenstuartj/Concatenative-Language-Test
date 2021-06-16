@@ -1,0 +1,16 @@
+
+def matching {
+  0 { a b -- b a } string->list
+  {
+    0 [ . ]         -- Matched ;
+    _ [ . ]         -- Unmatched ;
+    0 [ #\) ]       -- Unmatched ;
+    _ [ #\( . ]     -- Unmatched ;
+    n [ #\( _rest ] -- n 1 + [ _rest ] recur ;
+    n [ #\) _rest ] -- n 1 - [ _rest ] recur ;
+    n [ _   _rest ] -- n     [ _rest ] recur
+  }
+}
+
+matching println
+

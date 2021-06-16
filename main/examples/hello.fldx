@@ -1,0 +1,12 @@
+
+def ask-name {
+  "What is your name? " print drop
+  read-line
+}
+
+def say-hello {
+  ""   -- "Hello, anon!" println ;
+  name -- "Hello, " name "!" +s +s println
+}
+
+ask-name say-hello

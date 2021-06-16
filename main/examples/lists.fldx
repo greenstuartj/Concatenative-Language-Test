@@ -1,0 +1,84 @@
+
+def iota {
+  1 - []
+  {
+    -1 lst -- lst ;
+    n  lst -- n 1 - n lst cons recur
+  }
+}
+
+def stack-map {
+  . _ -- ;
+  e f -- f recur e f apply
+}
+
+def stack-reduce {
+  . i _ -- i ;
+  e i f -- e i f apply f recur
+}
+
+def map {
+  f -- :{ f stack-map }
+}
+
+def reduce {
+  i f -- :{ i f stack-reduce } uncons drop
+}
+
+def sum {
+  0 [ + ] reduce
+}
+
+def repeat {
+  { 0 <= } _ -- ;
+  n        f -- f apply n 1 - f recur
+}
+
+def stack-filter {
+  . f -- ;
+  e f -- e f apply
+         {
+	   False -- f stack-filter ;
+	   _     -- f stack-filter e
+	 }
+}
+
+def filter {
+  f -- :{ f stack-filter }
+}
+
+def for-each {
+  [ . ] _ -- ;
+  lst f -- lst uncons swap f apply f recur
+}
+
+def zip {
+  [ . ] _ -- [] ;
+  _ [ . ] -- [] ;
+  [ a _a ] [ b _b ] -- (a b) [ _a ] [ _b ] recur cons
+}
+
+def zip-with {
+  [ . ] _ _ -- [] ;
+  _ [ . ] _ -- [] ;
+  [ a _a ] [ b _b ] f -- a b f apply [ _a ] [ _b ] f recur cons
+}
+
+def reverse {
+  [] swap
+  {
+    acc [ . ] -- acc ;
+    acc [ h _t ] -- h acc cons [ _t ] recur
+  }
+}
+
+def stack-take {
+  0 -- clear ;
+  x n -- n 1 - recur x
+}
+
+def stack-drop {
+  0 -- ;
+  swap drop 1 - recur
+}
+
