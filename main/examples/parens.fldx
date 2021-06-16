@@ -1,4 +1,9 @@
 
+// USAGE:
+// ./main parens.fldx string
+// ./main parens.fldx "(())" => Matched
+// ./main parens.fldx "())" => Unmatched
+
 def matching {
   0 { a b -- b a } string->list
   {
