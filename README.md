@@ -1,5 +1,5 @@
 # Concatenative-Language-Test
-Exploring implementing a concatenative language
+Exploring implementing a [concatenative language](https://en.wikipedia.org/wiki/Concatenative_programming_language)
 
 An experiment into implementing a concatentive language in [GO](https://golang.org/)
 
