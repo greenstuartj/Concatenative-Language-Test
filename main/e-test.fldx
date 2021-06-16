@@ -1,8 +1,0 @@
-
-0 0
- [ { e n -- e 1 n { 0 -- 1 ; n -- n 1 - recur n * } / + n 1 + } ]
- 100
- { f 0 -- ; f n -- f apply f n 1 - recur }
- { a -- }
- println
- clear
