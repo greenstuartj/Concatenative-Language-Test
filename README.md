@@ -47,5 +47,5 @@ def factorial {
 Anonymous functions (with anonymous recursion)
 
 ```
-5 { 0 -- 1 ; n n 1 - recur * } println
+5 { 0 -- 1 ; n -- n n 1 - recur * } println
 ```
